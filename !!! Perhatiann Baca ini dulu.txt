@@ -1,0 +1,20 @@
+Website Company Profile Lokomedia - Template Pertamini
+
+==========================================================
+
+- Support PHP 5.6 hingga 7.3
+- CodeIgniter 3.1.11
+- perbaikan bug dan modul - modul yang belum selesai
+
+
+=========================================================
+** kekurangan **
+- di tampilan depan (home), untuk menu Laporan tahunan, market insight, media, karir masih manual coding. Jadi jika ingin mengganti / menghapusnya, edit di file "application->views->company-satu->content.php"
+
+
+mudah2an kedepannya sudah bisa lebih baik lagi di update selanjutnya.
+
+Terimakasih
+
+- Admin members.lokomedia.web.id -
+telp : 085716129917
