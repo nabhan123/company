@@ -22,8 +22,12 @@
                   <?php 
                     $no = 1;
                     foreach ($record as $row){
-                    $cmenu = $this->model_app->view_where('menu',array('id_menu'=>$row['id_parent']))->row_array();
-                    if ($cmenu['id_parent']==''){ $menu = 'Menu Utama'; }else{ $menu = $cmenu['nama_menu']; }
+                    $cmenu = $this->model_app->view_where('menu',array('id_menu'=>$row['id_menu']))->row_array();
+                    if ($cmenu['id_parent']==''){ 
+                      $menu = 'Menu Utama'; 
+                    }else{ 
+                      $menu = $cmenu['nama_menu']; 
+                    }
                     echo "<tr><td>$no</td>
                               <td>$row[nama_menu]</td>
                               <td>$menu</td>

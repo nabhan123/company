@@ -11,7 +11,7 @@ class Administrator extends CI_Controller {
 				$total = $cek->num_rows();
                 $this->load->helper('captcha');
 				if ($total > 0){
-					$hash = $row['password'];
+                    $hash = $row['password'];
 					if (password_verify($password, $hash)) {
 					$this->session->set_userdata('upload_image_file_manager',true);
 					$this->session->set_userdata(array('username'=>$row['username'],
@@ -66,12 +66,7 @@ class Administrator extends CI_Controller {
 					'expiration' => 7200
 				);
                 $cap = create_captcha($vals);
-                var_dump($cap);
-                if($cap){
-                    $data['image'] = $cap['image'];
-                }else{
-                    $data['image'] = $cap['image'];
-                }
+                $data['image'] = $cap['image'];
                 $this->session->set_userdata('mycaptcha', $cap['word']);
     			$data['title'] = 'Administrator &rsaquo; Log In';
     			$this->load->view('administrator/view_login',$data);

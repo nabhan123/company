@@ -25,6 +25,14 @@ class Model_app extends CI_model{
         return $this->db->get($table);
     }
 
+    public function getMenu($idMenu){
+
+        $query = "SELECT * FROM menu WHERE id_menu = ?";
+        $res = $this->db->query($query, $idMenu);
+        return $res;
+        
+    }
+
     public function view_ordering_limit($table,$order,$ordering,$baris,$dari){
         $this->db->select('*');
         $this->db->order_by($order,$ordering);

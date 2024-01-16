@@ -32,8 +32,65 @@ class Kategori extends CI_Controller {
 		}
 	}
 
-	public function cekMitra(){
+	public function getMitra(){
 
-		echo 'kesini mitra';
+		$query = $this->model_utama->cekMitra()->row_array();
+		if (empty($query)){
+			redirect('main');
+		}else{
+			$jumlah= $this->model_utama->cekMitra()->num_rows();
+			$config['base_url'] = base_url().'kategori/getMitra/'.$this->uri->segment(3);
+			$config['total_rows'] = $jumlah;
+			$config['per_page'] = 15; 	
+			if ($this->uri->segment('4')==''){
+				$dari = 0;
+			}else{
+				$dari = $this->uri->segment('4');
+			}
+			$data['title'] = "Mitra $query[mitra_name]";
+			$data['description'] = description();
+			$data['keywords'] = keywords();
+			$data['rows'] = $query;
+			$data['mitra'] = $this->model_utama->view('mitra');
+			
+			if (is_numeric($dari)) {
+				$data['mitraname'] = $this->model_utama->cekMitra();
+			}else{
+				redirect('main');
+			}
+			$this->pagination->initialize($config);
+			$this->template->load(template().'/template',template().'/cekMitra',$data);
+		}
+	}
+
+	public function getKarir(){
+
+		$query = $this->model_utama->cekKarir()->row_array();
+		if (empty($query)){
+			redirect('main');
+		}else{
+			$jumlah= $this->model_utama->cekKarir()->num_rows();
+			$config['base_url'] = base_url().'kategori/getKarir/'.$this->uri->segment(3);
+			$config['total_rows'] = $jumlah;
+			$config['per_page'] = 15; 	
+			if ($this->uri->segment('4')==''){
+				$dari = 0;
+			}else{
+				$dari = $this->uri->segment('4');
+			}
+			$data['title'] = "Karir $query[karir_name]";
+			$data['description'] = description();
+			$data['keywords'] = keywords();
+			$data['rows'] = $query;
+			$data['mitra'] = $this->model_utama->view('karir');
+			
+			if (is_numeric($dari)) {
+				$data['karirname'] = $this->model_utama->cekKarir()();
+			}else{
+				redirect('main');
+			}
+			$this->pagination->initialize($config);
+			$this->template->load(template().'/template',template().'/cekKarir',$data);
+		}
 	}
 }
