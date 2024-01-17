@@ -67,7 +67,7 @@ class Kategori extends CI_Controller {
 
 		$query = $this->model_utama->cekKarir()->row_array();
 		if (empty($query)){
-			redirect('main');
+			redirect('main/blankPage');
 		}else{
 			$jumlah= $this->model_utama->cekKarir()->num_rows();
 			$config['base_url'] = base_url().'kategori/getKarir/'.$this->uri->segment(3);

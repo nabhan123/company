@@ -7,11 +7,16 @@ class Main extends CI_Controller {
 		$data['keywords'] = keywords();
 		
 		$data['agenda'] = $this->model_utama->view_join('agenda','users','username','id_agenda','DESC',0,4);
-		
-		
-		
-		
-		
 		$this->template->load(template().'/template',template().'/content',$data);
+	}
+
+	public function blankPage(){
+		$data['title'] = title();
+		$data['description'] = description();
+		$data['keywords'] = keywords();
+		
+		$data['agenda'] = $this->model_utama->view_join('agenda','users','username','id_agenda','DESC',0,4);
+		$this->template->load(template().'/template',template().'/blankPage',$data);
+		
 	}
 }

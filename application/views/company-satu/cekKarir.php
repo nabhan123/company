@@ -21,7 +21,7 @@
 
 									<div class="col-md-7">
 										<div class="post-meta">
-											<span><i class="fa fa-calendar"></i></span>
+											<span><i class="fa-solid fa-business-time"></i></i></span>
 											<!-- <a href="<?php echo base_url()."berita/detail/$row[judul_seo]"; ?>" class="btn btn-xs btn-primary pull-right">Read more...</a> -->
 										</div>
 									</div>
